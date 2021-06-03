@@ -14,17 +14,17 @@
          </font>
       </Label>
       <Line endX="433.0" layoutX="134.0" layoutY="109.0" startX="-100.0" stroke="WHITE" />
-      <Button layoutX="234.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToRecord" prefHeight="58.0" prefWidth="133.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 5;" text="Records" textFill="WHITE">
+      <Button fx:id="record" layoutX="234.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToRecord" prefHeight="58.0" prefWidth="133.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 5;" stylesheets="@../application/application.css" text="Records" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="234.0" layoutY="131.0" mnemonicParsing="false" onAction="#goToGame" prefHeight="58.0" prefWidth="133.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 5;" text="Jouer" textFill="WHITE">
+      <Button fx:id="play" layoutX="234.0" layoutY="131.0" mnemonicParsing="false" onAction="#goToGame" prefHeight="58.0" prefWidth="133.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 5;" stylesheets="@../application/application.css" text="Jouer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="234.0" layoutY="274.0" mnemonicParsing="false" onAction="#exit" prefHeight="58.0" prefWidth="133.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 5;" text="Quitter" textFill="WHITE">
+      <Button fx:id="quit" layoutX="234.0" layoutY="274.0" mnemonicParsing="false" onAction="#exit" prefHeight="58.0" prefWidth="133.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 5;" stylesheets="@../application/application.css" text="Quitter" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

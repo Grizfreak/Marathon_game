@@ -1,15 +1,16 @@
 package controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -22,7 +23,7 @@ public class GameController implements Initializable {
 	@FXML ImageView secondDice;
 	@FXML ImageView thirdDice;
 	@FXML Label distance;
-	@FXML TextArea response;
+	@FXML TextField response;
 	@FXML ImageView fourthDice;
 	String playername;
 	Tirage tirage;
@@ -54,6 +55,19 @@ public class GameController implements Initializable {
 
 
 	private void validateInput() {
+		System.out.println("salut");
+		if(tirage.compare(response.getText())) {
+			System.out.println("bien joué ça marche !");
+			int_dist-=Integer.parseInt(response.getText());
+			distance.setText(int_dist.toString());
+			launchAndDisplayTirage();
+		}
+		else {
+			System.out.println("aïe");
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setContentText("Vous avez entré une valeur incorrecte");
+			response.setText("");
+		}
 		
 	}
 

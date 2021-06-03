@@ -77,6 +77,7 @@ public class Tirage {
 	}
 	
 	public boolean compare(String value) {
+		char[] chars = new char[4];
 		if(value.contains(first.toString()+second.toString()+third.toString()+fourth.toString())) {
 			return true;
 		}

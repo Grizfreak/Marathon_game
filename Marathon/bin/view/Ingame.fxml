@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -20,11 +20,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextArea fx:id="response" layoutX="201.0" layoutY="270.0" prefHeight="47.0" prefWidth="200.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextArea>
       <Line endX="433.0" layoutX="134.0" layoutY="223.0" startX="-100.0" stroke="WHITE" />
       <ImageView fx:id="roll" fitHeight="80.0" fitWidth="80.0" layoutX="506.0" layoutY="114.0" onMouseClicked="#launchAndDisplayTirage" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="validate" fitHeight="80.0" fitWidth="80.0" layoutX="506.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true" />
@@ -42,5 +37,6 @@
       <ImageView fx:id="secondDice" fitHeight="90.0" fitWidth="90.0" layoutX="156.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="thirdDice" fitHeight="90.0" fitWidth="90.0" layoutX="288.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="fourthDice" fitHeight="90.0" fitWidth="90.0" layoutX="409.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="response" layoutX="216.0" layoutY="279.0" prefHeight="30.0" prefWidth="171.0" />
    </children>
 </AnchorPane>

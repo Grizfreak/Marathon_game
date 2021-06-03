@@ -20,7 +20,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextArea layoutX="201.0" layoutY="270.0" prefHeight="47.0" prefWidth="200.0">
+      <TextArea fx:id="response" layoutX="201.0" layoutY="270.0" prefHeight="47.0" prefWidth="200.0">
          <font>
             <Font size="14.0" />
          </font>

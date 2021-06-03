@@ -7,10 +7,10 @@ import javafx.scene.image.Image;
 
 public class Tirage {
 	private int nbDice;
-	private int first;
-	private int second;
-	private int third;
-	private int fourth;
+	private Integer first;
+	private Integer second;
+	private Integer third;
+	private Integer fourth;
 
 	public Tirage(int nbDice) {
 		this.nbDice=nbDice;
@@ -76,7 +76,10 @@ public class Tirage {
 		return nbDice;
 	}
 	
-	public void compare(String value) {
-		
+	public boolean compare(String value) {
+		if(value.contains(first.toString()+second.toString()+third.toString()+fourth.toString())) {
+			return true;
+		}
+		else return false;
 	}
 }

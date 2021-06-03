@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -7,9 +8,12 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class GameController implements Initializable {
 	@FXML ImageView validate;
@@ -18,6 +22,7 @@ public class GameController implements Initializable {
 	@FXML ImageView secondDice;
 	@FXML ImageView thirdDice;
 	@FXML Label distance;
+	@FXML TextArea response;
 	@FXML ImageView fourthDice;
 	String playername;
 	Tirage tirage;
@@ -41,6 +46,15 @@ public class GameController implements Initializable {
 		}
 		playername=result.toString();
 		launchAndDisplayTirage();
+		response.addEventFilter(KeyEvent.KEY_RELEASED, keyEvent -> {
+			if(keyEvent.getCode() == KeyCode.ENTER)
+				validateInput();
+		});
+	}
+
+
+	private void validateInput() {
+		
 	}
 
 

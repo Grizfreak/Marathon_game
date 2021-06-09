@@ -36,7 +36,7 @@ public class Tirage {
 			break;
 		}
 	}
-	
+
 	public String getvalue(int value) {
 		String returned;
 		switch(value) {
@@ -74,13 +74,5 @@ public class Tirage {
 
 	public int getNbDice() {
 		return nbDice;
-	}
-	
-	public boolean compare(String value) {
-		char[] chars = new char[4];
-		if(value.contains(first.toString()+second.toString()+third.toString()+fourth.toString())) {
-			return true;
-		}
-		else return false;
 	}
 }

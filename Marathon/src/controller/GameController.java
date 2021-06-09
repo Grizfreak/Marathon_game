@@ -3,18 +3,17 @@ package controller;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 public class GameController implements Initializable {
 	@FXML ImageView validate;
@@ -32,7 +31,7 @@ public class GameController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 		validate.setImage(new Image(getClass().getResource("/images/check.png").toString()));
 		roll.setImage(new Image(getClass().getResource("/images/return.png").toString()));
 		TextInputDialog dialog = new TextInputDialog("random");
@@ -45,7 +44,30 @@ public class GameController implements Initializable {
 		if (result.isPresent()){
 			System.out.println("Your name: " + result.get());
 		}
-		playername=result.toString();
+		firstDice.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				response.setText(response.getText()+getValue(firstDice.getImage()));	
+			}
+		});
+		secondDice.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				response.setText(response.getText()+getValue(secondDice.getImage()));	
+			}
+		});
+		thirdDice.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				response.setText(response.getText()+getValue(thirdDice.getImage()));	
+			}
+		});
+		fourthDice.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				response.setText(response.getText()+getValue(fourthDice.getImage()));	
+			}
+		});
 		launchAndDisplayTirage();
 		response.addEventFilter(KeyEvent.KEY_RELEASED, keyEvent -> {
 			if(keyEvent.getCode() == KeyCode.ENTER)
@@ -54,21 +76,28 @@ public class GameController implements Initializable {
 	}
 
 
-	private void validateInput() {
-		System.out.println("salut");
-		if(tirage.compare(response.getText())) {
-			System.out.println("bien joué ça marche !");
+
+	@FXML private void validateInput() {
+		if(response.getLength()==4) {
 			int_dist-=Integer.parseInt(response.getText());
 			distance.setText(int_dist.toString());
 			launchAndDisplayTirage();
-		}
-		else {
-			System.out.println("aïe");
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("Vous avez entré une valeur incorrecte");
 			response.setText("");
 		}
-		
+		else response.setText("");
+
+	}
+
+	private int getValue(Image img) {
+		int nb=0;
+		if (img.getUrl().contains("1"))nb=1;
+		else if (img.getUrl().contains("2"))nb=2;
+		else if (img.getUrl().contains("3"))nb=3;
+		else if (img.getUrl().contains("4"))nb=4;
+		else if (img.getUrl().contains("5"))nb=5;
+		else nb=6;
+		return nb;
+
 	}
 
 
@@ -78,12 +107,18 @@ public class GameController implements Initializable {
 		}
 		else if (int_dist>999) {
 			tirage = new Tirage(3);
+			fourthDice.setImage(null);
 		}
 		else if (int_dist>99) {
 			tirage = new Tirage(2);
+			thirdDice.setImage(null);
+			fourthDice.setImage(null);
 		}
 		else {
 			tirage = new Tirage(1);
+			secondDice.setImage(null);
+			thirdDice.setImage(null);
+			fourthDice.setImage(null);
 		}
 		switch (tirage.getNbDice()) {
 		case 1 :
@@ -106,5 +141,4 @@ public class GameController implements Initializable {
 			break;
 		}
 	}
-
 }

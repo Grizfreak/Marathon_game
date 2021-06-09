@@ -22,7 +22,7 @@
       </Label>
       <Line endX="433.0" layoutX="134.0" layoutY="223.0" startX="-100.0" stroke="WHITE" />
       <ImageView fx:id="roll" fitHeight="80.0" fitWidth="80.0" layoutX="506.0" layoutY="114.0" onMouseClicked="#launchAndDisplayTirage" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="validate" fitHeight="80.0" fitWidth="80.0" layoutX="506.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="validate" fitHeight="80.0" fitWidth="80.0" layoutX="506.0" layoutY="277.0" onMouseClicked="#validateInput" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="409.0" layoutY="271.0" text="m" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
